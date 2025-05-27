@@ -1,0 +1,22 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app running on Docker",
+  "main": "app.js",
+
+  "scripts": {
+    "build:css": "tailwindcss build src/styles.css -o public/css/styles.css",
+    "start": "node app.js"
+  },
+
+  "dependencies": {
+    "express": "^4.17.1",
+    "ejs": "^3.1.8",
+    "marked": "^4.0.0"
+  },
+
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
+  }
+
+}
