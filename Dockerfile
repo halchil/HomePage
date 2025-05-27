@@ -11,7 +11,7 @@ COPY package.json ./
 RUN npm install
 
 # Tailwind CSSの設定ファイルを生成（初回のみ必要）
-RUN npx tailwindcss init
+# RUN npx tailwindcss init
 
 # アプリケーションコードをコピー
 COPY . .
