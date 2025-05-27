@@ -16,6 +16,22 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Home', message: 'Welcome to my website!' });
 });
 
+// /about ページ
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About',
+    message: 'About Page'
+  });
+});
+
+// /music ページ
+app.get('/music', (req, res) => {
+  res.render('music', {
+    title: 'Music',
+    message: 'Music Page'
+  });
+});
+
 // ブログ一覧ページ
 
 app.get('/blog', (req, res) => {
