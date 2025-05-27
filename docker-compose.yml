@@ -5,6 +5,13 @@ services:
     build: .
     ports:
       - "3000:3000"
+    volumes:
+      - ./content:/usr/src/app/content
+      - ./views:/usr/src/app/views
+      - ./public:/usr/src/app/public #Express 経由で /usr/src/app/public/css/styles.css にマッピングされま
+      - ./app.js:/usr/src/app/app.js
+      - ./package.json:/usr/src/app/package.json
+      # - ./package-lock.json:/usr/src/app/package-lock.json
     networks:
       - my_network
 

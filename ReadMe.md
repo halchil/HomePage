@@ -27,10 +27,16 @@ http://xxx.xxx.xxx.xxx:3000
 docker compose down
 ```
 
+コンテナ内にて、npxを使ってcssを作成する。(これは自動化したい)
+```
+$ npx tailwindcss -i ./src/styles.css -o ./public/css/styles.css --verbose
+```
 # ディレクトリ構成
 app.js
 
 # Other
+
+[TailwindCSS](https://tailwindcss.com/docs/installation/using-vite)
 
 Dockerfile参考
 https://github.com/Hayao0819/hayao0819.com/blob/master/Dockerfile
