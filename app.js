@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+
+const videosPath = path.join(__dirname, 'data', 'videos.json');
+const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
+
 //const marked = require('marked');
 const { marked } = require('marked');
 const app = express();
@@ -26,9 +30,15 @@ app.get('/about', (req, res) => {
 
 // /music ページ
 app.get('/music', (req, res) => {
+
+  // JSONファイル読み込み
+  const videosPath = path.join(__dirname, 'data', 'videos.json');
+  const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
+
   res.render('music', {
     title: 'Music',
-    message: 'Music Page'
+    message: 'Music Page',
+    videos: videos
   });
 });
 

@@ -5,7 +5,7 @@
   "main": "app.js",
 
   "scripts": {
-    "build:css": "tailwindcss -i ./src/styles.css -o ./public/css/styles.css",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./public/css/styles.css --minify",
     "start": "node app.js" 
   },
 
