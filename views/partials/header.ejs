@@ -1,15 +1,35 @@
-<nav class="flex items-center justify-between p-4 border-b">
+<nav class="flex items-center justify-between px-6 py-4 bg-white shadow-md relative">
   <!-- ロゴ -->
-  <div class="text-xl font-bold text-gray-800">
-    <a href="/"><img src="/images/k8s.png" alt="Logo" class="h-8 max-w-none object-contain"></a>
+  <div class="flex items-center space-x-2">
+    <a href="/" class="flex items-center space-x-2">
+      <img src="/images/k8s.png" alt="Logo" class="h-8 object-contain" />
+      <span class="text-xl font-bold text-gray-800">Data Platform Engineer</span>
+    </a>
   </div>
 
-  <!-- ナビゲーションメニュー -->
-  <div class="space-x-4">
-    <a href="/" class="text-blue-500 hover:text-blue-700">Home</a>
-    <a href="/about" class="text-blue-500 hover:text-blue-700">Engineering</a>
-    <a href="/about" class="text-blue-500 hover:text-blue-700">About()</a>
-    <a href="/music" class="text-blue-500 hover:text-blue-700">Music</a>
-    <a href="/blog" class="text-blue-500 hover:text-blue-700">Blog</a>
+  <!-- ナビゲーション -->
+  <div class="hidden md:flex space-x-6 items-center">
+    <a href="/" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">ホーム</a>
+
+    <!-- IT技術ドロップダウン（修正済み） -->
+    <div class="relative group">
+      <button class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+        IT技術
+      </button>
+      <!-- ドロップダウン本体 -->
+      <div class="absolute left-0 top-full mt-1 w-48 bg-white border border-gray-200 shadow-lg rounded-md 
+                  opacity-0 group-hover:opacity-100 invisible group-hover:visible 
+                  transition-all duration-300 z-20 pointer-events-auto">
+        <a href="/Engineering#career" class="block px-4 py-2 hover:bg-gray-100 text-gray-700">経歴</a>
+        <a href="/Engineering#datasci" class="block px-4 py-2 hover:bg-gray-100 text-gray-700">データサイエンス</a>
+        <a href="/Engineering#oss" class="block px-4 py-2 hover:bg-gray-100 text-gray-700">OSS活動</a>
+        <a href="/Engineering#seminar" class="block px-4 py-2 hover:bg-gray-100 text-gray-700">セミナー</a>
+        <a href="/Engineering#youtube" class="block px-4 py-2 hover:bg-gray-100 text-gray-700">YouTube</a>
+      </div>
+    </div>
+
+    <a href="/music" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">音楽</a>
+    <a href="/advice" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">お悩み相談</a>
+    <a href="/blog" class="text-gray-700 hover:text-blue-600 font-medium transition duration-300">ブログ</a>
   </div>
 </nav>
