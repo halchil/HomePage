@@ -54,13 +54,31 @@ app.get('/music', (req, res) => {
   });
 });
 
+
 // advice ページ
+app.get('/advice', (req, res) => {
+  const advicePath = path.join(__dirname, 'data', 'advice.json');
+  fs.readFile(advicePath, 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading advice data');
+    }
+    let adviceList = JSON.parse(data);
+    res.render('advice', {
+      title: 'Advice',
+      adviceList
+    });
+  });
+});
+
+
+/*
 app.get('/advice', (req, res) => {
   res.render('advice', {
     title: 'Advice',
     message: 'advice'
   });
 });
+*/
 
 // ブログ一覧ページ
 
