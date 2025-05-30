@@ -1,33 +1,82 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <title>Blog</title>
+  <title><%= title %></title>
   <link href="/css/styles.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
-    <div class="container mx-auto p-4">
-    <h1 class="text-4xl font-bold mb-4 text-center">Blog</h1>
+  <div class="bg-gray-100 flex">
+        
+        <!-- 縦帯の画像 -->
+        <div class="bg-contain bg-center w-64 h-screen" style="background-image: url('/images/name.png');">
+        <!-- 必要に応じて画像タグでもOK -->
+        <!-- <img src="/images/sidebar.jpg" class="h-full w-full object-cover" alt="Sidebar"> -->
+        </div>
 
-    <nav class="flex justify-center space-x-4 mb-8">
-      <a href="/" class="text-blue-500 hover:text-blue-700">Home</a>
-      <a href="/music" class="text-blue-500 hover:text-blue-700">Music</a>
-      <a href="/about" class="text-blue-500 hover:text-blue-700">About</a>
-      <a href="/blog" class="text-blue-500 hover:text-blue-700">Blog</a>
-    </nav>
+        <!-- 右側 -->
+        <div class="bg-gray-200 flex-1 p-4">
+            <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
+        
+ 
+           
 
-    <% posts.forEach(post => { %>
-      <div class="mb-8 bg-white p-4 rounded shadow">
-        <h2 class="text-2xl font-bold mb-2"><%= post.title %></h2>
-        <div><%- post.content %></div>
-        aaa
-      </div>
-    <% }) %>
+              <!-- ----- ----- ----- ----- ----- ----- -----  -->
 
-  </div>
+              <div class="mt-10 space-y-8 p-10">
+
+                <!-- タグ一覧 -->
+                <div class="px-10 pt-5">
+                  <h3 class="text-lg font-semibold mb-2">タグで絞り込み:</h3>
+                  <div class="flex flex-wrap gap-2">
+                    <!-- "All"リンク -->
+                    <a href="/blog" class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-sm hover:bg-blue-200 <% if (!currentTag) { %> font-bold <% } %>">
+                      All (<%= posts.length %>)
+                    </a>
+
+                    <% Object.entries(tagCounts).forEach(([tag, count]) => { %>
+                      <a href="/blog?tag=<%= tag %>" class="bg-gray-200 text-gray-800 px-3 py-1 rounded text-sm hover:bg-blue-200 <% if (currentTag === tag) { %> font-bold bg-blue-200 <% } %>">
+                        #<%= tag %> (<%= count %>)
+                      </a>
+                    <% }) %>
+                  </div>
+                </div>
+                <!--  -->
+
+
+                <% posts.forEach(post => { %>
+                  <div class="mb-6 bg-white p-4 rounded shadow">
+                    <p class="text-sm text-gray-500"><%= post.date %></p>
+                    <h2 class="text-xl font-bold">
+                      <a href="<%= post.link %>" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+                        <%= post.title %>
+                      </a>
+                    </h2>
+
+                    <!-- タグ表示 -->
+                    <div class="mt-2 space-x-2">
+                      <% if (post.tags && post.tags.length) { %>
+                        <% post.tags.forEach(tag => { %>
+                          <a href="/blog?tag=<%= tag %>" class="inline-block bg-gray-200 text-gray-700 text-xs px-2 py-1 rounded hover:bg-blue-200">
+                            #<%= tag %>
+                          </a>
+                        <% }) %>
+                      <% } %>
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+
+              <!-- ----- ----- ----- ----- ----- ----- -----  -->
+
+         </div>
+    </div>
+
 </body>
-
 </html>
+
+ 

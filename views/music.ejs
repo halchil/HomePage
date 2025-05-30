@@ -9,75 +9,39 @@
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-  <div class="container mx-auto p-4">
-    <h1 class="text-4xl font-bold mb-4 text-center"><%= message %></h1>
 
-    <nav class="flex justify-center space-x-4 mb-8">
-      <a href="/" class="text-blue-500 hover:text-blue-700">Home</a>
-      <a href="/music" class="text-blue-500 hover:text-blue-700">Music</a>
-      <a href="/about" class="text-blue-500 hover:text-blue-700">About</a>
-      <a href="/blog" class="text-blue-500 hover:text-blue-700">Blog</a>
-    </nav>
-
-    <%- include('partials/header') %>
-
-    <div class="text-center">
-      <p>Explore my music collection and listen to some of my favorite tracks.</p>
-    </div>
-
-    <div class="grid grid-cols-2 grid-rows-2 gap-8 p-6">
-      <% videos.forEach(video => { %>
-        <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-          <a href="https://www.youtube.com/watch?v=<%= video.id %>" target="_blank" rel="noopener noreferrer" class="mb-4">
-            <img src="https://img.youtube.com/vi/<%= video.id %>/hqdefault.jpg" alt="<%= video.title %> Thumbnail" class="rounded-lg shadow-sm" />
-          </a>
-          <a href="https://www.youtube.com/watch?v=<%= video.id %>" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
-            <%= video.title %>
-          </a>
+    <div class="bg-gray-100 flex">
+        
+        <!-- 縦帯の画像 -->
+        <div class="bg-contain bg-center w-64 h-screen" style="background-image: url('/images/name.png');">
+        <!-- 必要に応じて画像タグでもOK -->
+        <!-- <img src="/images/sidebar.jpg" class="h-full w-full object-cover" alt="Sidebar"> -->
         </div>
-      <% }) %>
+
+        <!-- 右側 -->
+        <div class="bg-gray-200 flex-1 p-4">
+        <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
+        
+            <div class="mt-10 space-y-8 p-10">
+
+              <div class="grid grid-cols-2 grid-rows-2 gap-8 p-6">
+                <% videos.forEach(video => { %>
+                  <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <a href="https://www.youtube.com/watch?v=<%= video.id %>" target="_blank" rel="noopener noreferrer" class="mb-4">
+                      <img src="https://img.youtube.com/vi/<%= video.id %>/hqdefault.jpg" alt="<%= video.title %> Thumbnail" class="rounded-lg shadow-sm" />
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=<%= video.id %>" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
+                      <%= video.title %>
+                    </a>
+                  </div>
+                <% }) %>
+              </div>
+              
+            </div>
+   
+         </div>
+         
     </div>
-
-    <!--
-    <div class="grid grid-cols-2 grid-rows-2 gap-8 p-6">
-      <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-        <a href="https://www.youtube.com/watch?v=動画ID1" target="_blank" rel="noopener noreferrer" class="mb-4">
-          <img src="https://img.youtube.com/vi/動画ID1/hqdefault.jpg" alt="Video 1 Thumbnail" class="rounded-lg shadow-sm" />
-        </a>
-        <a href="https://www.youtube.com/watch?v=動画ID1" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
-          YouTube Video 1
-        </a>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-        <a href="https://www.youtube.com/watch?v=動画ID2" target="_blank" rel="noopener noreferrer" class="mb-4">
-          <img src="https://img.youtube.com/vi/動画ID2/hqdefault.jpg" alt="Video 2 Thumbnail" class="rounded-lg shadow-sm" />
-        </a>
-        <a href="https://www.youtube.com/watch?v=動画ID2" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
-          YouTube Video 2
-        </a>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-        <a href="https://www.youtube.com/watch?v=動画ID3" target="_blank" rel="noopener noreferrer" class="mb-4">
-          <img src="https://img.youtube.com/vi/動画ID3/hqdefault.jpg" alt="Video 3 Thumbnail" class="rounded-lg shadow-sm" />
-        </a>
-        <a href="https://www.youtube.com/watch?v=動画ID3" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
-          YouTube Video 3
-        </a>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-        <a href="https://www.youtube.com/watch?v=動画ID4" target="_blank" rel="noopener noreferrer" class="mb-4">
-          <img src="https://img.youtube.com/vi/動画ID4/hqdefault.jpg" alt="Video 4 Thumbnail" class="rounded-lg shadow-sm" />
-        </a>
-        <a href="https://www.youtube.com/watch?v=動画ID4" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
-          YouTube Video 4
-        </a>
-      </div>
-    </div>
-
-    -->
-
-</div>
 
 </body>
-
 </html>

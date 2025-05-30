@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-const videosPath = path.join(__dirname, 'data', 'videos.json');
-const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
+// const videosPath = path.join(__dirname, 'data', 'videos.json');
+// const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
 
 //const marked = require('marked');
 const { marked } = require('marked');
@@ -38,39 +38,88 @@ app.get('/about', (req, res) => {
 
 // /music ページ
 app.get('/music', (req, res) => {
-
-  // JSONファイル読み込み
   const videosPath = path.join(__dirname, 'data', 'videos.json');
-  const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
+  fs.readFile(videosPath, 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading videos');
+    }
 
-  res.render('music', {
-    title: 'Music',
-    message: 'Music Page',
-    videos: videos
+    const videos = JSON.parse(data);
+
+    res.render('music', {
+      title: 'Music',
+      message: 'Music Page',
+      videos: videos
+    });
+  });
+});
+
+// advice ページ
+app.get('/advice', (req, res) => {
+  res.render('advice', {
+    title: 'Advice',
+    message: 'advice'
   });
 });
 
 // ブログ一覧ページ
 
+// /blog 一覧ページ（jsonで管理）
+
 app.get('/blog', (req, res) => {
-  const postsDir = path.join(__dirname, 'content');
-  fs.readdir(postsDir, (err, files) => {
+  const blogPath = path.join(__dirname, 'data', 'blog.json');
+  fs.readFile(blogPath, 'utf-8', (err, data) => {
     if (err) {
-      return res.status(500).send('Error reading posts directory');
+      return res.status(500).send('Error loading blog');
     }
 
-    const posts = files.map(file => {
-    const filePath = path.join(postsDir, file);
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const htmlContent = marked.parse(content); // 修正: marked.parse を使用
+    let posts = JSON.parse(data);
+    const tagFilter = req.query.tag;
 
-      return { title: file.replace('.md', ''), content: htmlContent };
+    // タグでフィルタリング
+    if (tagFilter) {
+      posts = posts.filter(post => post.tags && post.tags.includes(tagFilter));
+    }
 
+    // 全タグ＋件数を集計
+    const tagCounts = {};
+    JSON.parse(data).forEach(post => {
+      if (post.tags) {
+        post.tags.forEach(tag => {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        });
+      }
     });
 
-    res.render('blog', { posts });
+    res.render('blog', {
+      title: 'Blog',
+      posts,
+      tagCounts,
+      currentTag: tagFilter || null
+    });
   });
 });
+
+
+/*
+app.get('/blog', (req, res) => {
+  const blogPath = path.join(__dirname, 'data', 'blog.json');
+  fs.readFile(blogPath, 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading blog');
+    }
+
+    let posts = JSON.parse(data);
+    const tagFilter = req.query.tag;
+
+    if (tagFilter) {
+      posts = posts.filter(post => post.tags && post.tags.includes(tagFilter));
+    }
+
+    res.render('blog', { title: 'Blog', posts });
+  });
+});
+*/
 
 
 app.listen(port, () => {
