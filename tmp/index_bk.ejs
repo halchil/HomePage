@@ -17,7 +17,7 @@
       <!-- <img src="/images/sidebar.jpg" class="h-full w-full object-cover" alt="Sidebar"> -->
     </div>
 
-    <!-- 右側 -->
+    <!-- プロフィールなどの内容 -->
     <div class="bg-gray-200 flex-1 p-4">
       <!-- <h1 class="text-4xl font-bold mb-4 text-center"><%= message %></h1> -->
       <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
@@ -29,7 +29,7 @@
       </div>
       -->
 
-      <div class="mt-10 space-y-8 p-20">
+      <div class="mt-10 space-y-8 p-10">
 
         <!-- 開発系 -->
         <div>
@@ -61,7 +61,7 @@
             <a href="https://qiita.com/halchil" target="_blank" rel="noopener noreferrer"
    class="inline-flex items-center space-x-3 text-white font-semibold rounded-lg px-4 py-3 bg-[#55C500] hover:bg-[#4AA200] transition-all duration-200 shadow-sm">
               <svg class="w-6 h-6" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10c2.378 0 4.552-.832 6.252-2.215l1.731 1.731 1.415-1.414-1.731-1.731A9.959 9.959 0 0 0 22 12c0-5.523-4.477-10-10-10zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm1 9h-2v2h2v-2zm0-6h-2v5h2V7z"/>
+                <path d="M3 3h18v18H3V3zm5.625 5.625v6.75h6.75v-1.125h-5.625v-5.625h-1.125zm9.75 0v6.75h-1.125v-6.75h1.125z"/>
               </svg>
               <span>Qiita</span>
             </a>
@@ -95,13 +95,12 @@
 
             <!-- X (旧Twitter) -->
             <a href="https://x.com/あなたのユーザー名" target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center space-x-3 text-white font-semibold rounded-lg px-4 py-3 bg-black hover:bg-gray-800 transition-all duration-200 shadow-sm min-w-[150px] justify-center">
+              class="inline-flex items-center space-x-3 text-white font-semibold rounded-lg px-4 py-3 bg-black hover:bg-gray-800 transition-all duration-200 shadow-sm">
               <svg class="w-6 h-6" fill="white" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M21.543 2.478h-4.81l-3.76 5.712L9.108 2.478H2.21l6.579 9.689L2 21.52h4.81l4.042-6.135 4.042 6.135h6.898l-6.789-9.868L21.543 2.478z"/>
               </svg>
-              <span> X </span>
+              <span>X</span>
             </a>
-
 
             <!-- Instagram
             
@@ -157,6 +156,9 @@
               <span>SoundCloud</span>
             </a>
 
+
+
+
             <!-- note.com -->
 
             <a href="https://note.com/あなたのユーザー名" target="_blank" rel="noopener noreferrer"
@@ -179,5 +181,137 @@
 
   </div>
 
+  <div class="bg-red-700">
+    devide
+  </div>
+
+  
+
+  <div class="container mx-auto p-4">
+
+    <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
+    <h1 class="text-4xl font-bold mb-4 text-center"><%= message %> hello Haru!</h1>
+  </div>
+  
+  <div class="container mx-auto p-4">
+   
+    <div class="text-center mb-8">
+      <img src="./images/k8s.png" alt="Profile Picture" class="rounded-full w-32 h-32 mx-auto mb-4">
+      <p>Hello! Welcome to my personal website where I share my journey as an engineer and musician.</p>
+    </div>
+
+    <div class="text-center">
+      <a href="https://github.com/halchil" target="_blank" class="text-blue-500 hover:text-blue-700">Visit my GitHub</a>
+    </div>
+
+    <div class="grid grid-cols-4 gap-4 p-4">
+      <!-- ブロック1 -->
+      <div class="bg-white shadow-md rounded-xl p-6 text-left hover:shadow-xl transition-shadow duration-300">
+        <div class="flex items-center space-x-4 mb-4">
+          <img src="/images/k8s.png" alt="Profile" class="w-16 h-16 rounded-full object-cover border-2 border-blue-400">
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800">春山 Haru</h2>
+            <p class="text-sm text-gray-500">Engineer & Musician</p>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          Docker / Kubernetes / Big Data / 音楽・表現が好きなインフラエンジニア。<br>
+          実用と美学の間をさまよう旅人。現在、フリーランスとして活動中。
+        </p>
+      </div>
+
+      <!-- ブロック2 -->
+      <div class="bg-gray-200 p-4 text-center">ブロック2</div>
+      <div class="bg-gray-200 p-4 text-center">ブロック3</div>
+      <div class="bg-gray-200 p-4 text-center">ブロック4</div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 p-4">
+      <div class="bg-blue-200 p-4 text-center">ブロック1</div>
+      <div class="bg-blue-200 p-4 text-center">ブロック2</div>
+      <div class="bg-blue-200 p-4 text-center">ブロック3</div>
+      <div class="bg-blue-200 p-4 text-center">ブロック4</div>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-4 mt-8">
+      <!-- GitHub -->
+      <a href="https://github.com/halchil" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-gray-800 hover:text-gray-900 font-semibold border border-gray-300 hover:border-gray-700 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.426 2.865 8.187 6.839 9.524.5.092.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.153-1.11-1.46-1.11-1.46-.908-.62.069-.608.069-.608 1.004.07 1.532 1.031 1.532 1.031.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.22-.254-4.555-1.113-4.555-4.952 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.27.098-2.647 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.908-1.296 2.747-1.026 2.747-1.026.546 1.378.203 2.395.1 2.647.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.944.359.309.678.918.678 1.852 0 1.337-.012 2.417-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.523 2 12 2z"/>
+        </svg>
+        <span>GitHub</span>
+      </a>
+    
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 font-semibold border border-blue-300 hover:border-blue-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.406.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.798.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.59l-.467 3.622h-3.123V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+    
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-pink-600 hover:text-pink-800 font-semibold border border-pink-300 hover:border-pink-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+          <path d="M16 11.37a4 4 0 11-7.99 0 4 4 0 017.99 0z"/>
+          <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+        </svg>
+        <span>Instagram</span>
+      </a>
+    
+      <!-- Qiita -->
+      <a href="https://qiita.com/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-green-700 hover:text-green-900 font-semibold border border-green-300 hover:border-green-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L2 22h20L12 2zM7.5 17.5v-3.75l-1.25-2.125h1.5L9 13.5v4h-1.5zM15 17.5v-4l1.25-2.125h-1.5L13.5 13.75V17.5H15z"/>
+        </svg>
+        <span>Qiita</span>
+      </a>
+    
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-red-600 hover:text-red-800 font-semibold border border-red-300 hover:border-red-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10 15l5.19-3L10 9v6z"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M21.8 7.2a2.74 2.74 0 00-1.927-1.938C18.276 5 12 5 12 5s-6.276 0-7.873.262A2.74 2.74 0 002.2 7.2 28.263 28.263 0 002 12a28.263 28.263 0 00.2 4.8 2.74 2.74 0 001.927 1.938C5.724 19 12 19 12 19s6.276 0 7.873-.262a2.74 2.74 0 001.927-1.938A28.263 28.263 0 0022 12a28.263 28.263 0 00-.2-4.8z"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    
+      <!-- Pixiv -->
+      <a href="https://www.pixiv.net/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-purple-700 hover:text-purple-900 font-semibold border border-purple-300 hover:border-purple-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2l8 20H4l8-20zM8.5 16.5h7v-2h-7v2z"/>
+        </svg>
+        <span>Pixiv</span>
+      </a>
+    
+      <!-- SoundCloud -->
+      <a href="https://soundcloud.com/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-orange-500 hover:text-orange-700 font-semibold border border-orange-300 hover:border-orange-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 16a5 5 0 010-10c.233 0 .46.026.68.075A7 7 0 0117 12a7 7 0 01-10 4.925A5 5 0 013 16z"/>
+          <path d="M18 13a3 3 0 00-3-3h-1v6h1a3 3 0 003-3z"/>
+        </svg>
+        <span>SoundCloud</span>
+      </a>
+    
+      <!-- note.com -->
+      <a href="https://note.com/" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center space-x-2 text-yellow-600 hover:text-yellow-800 font-semibold border border-yellow-300 hover:border-yellow-600 rounded-md px-4 py-2 transition-colors duration-200">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 5h16v14H4V5zM12 7v10l5-5-5-5z"/>
+        </svg>
+        <span>note.com</span>
+      </a>
+    </div>
+    
+
+  </div>
 </body>
 </html>

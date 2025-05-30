@@ -20,6 +20,14 @@ app.get('/', (req, res) => {
   res.render('index', { title: 'Home', message: 'Welcome to my website!' });
 });
 
+// /Engineering ページ
+app.get('/engineering', (req, res) => {
+  res.render('engineering', {
+    title: 'Engineering',
+    message: 'Engineering Page'
+  });
+});
+
 // /about ページ
 app.get('/about', (req, res) => {
   res.render('about', {
