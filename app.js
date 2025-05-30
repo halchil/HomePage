@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-const videosPath = path.join(__dirname, 'data', 'videos.json');
-const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
+// const videosPath = path.join(__dirname, 'data', 'videos.json');
+// const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
 
 //const marked = require('marked');
 const { marked } = require('marked');
@@ -38,15 +38,27 @@ app.get('/about', (req, res) => {
 
 // /music ページ
 app.get('/music', (req, res) => {
-
-  // JSONファイル読み込み
   const videosPath = path.join(__dirname, 'data', 'videos.json');
-  const videos = JSON.parse(fs.readFileSync(videosPath, 'utf-8'));
+  fs.readFile(videosPath, 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading videos');
+    }
 
-  res.render('music', {
-    title: 'Music',
-    message: 'Music Page',
-    videos: videos
+    const videos = JSON.parse(data);
+
+    res.render('music', {
+      title: 'Music',
+      message: 'Music Page',
+      videos: videos
+    });
+  });
+});
+
+// advice ページ
+app.get('/advice', (req, res) => {
+  res.render('advice', {
+    title: 'Advice',
+    message: 'advice'
   });
 });
 
@@ -68,7 +80,7 @@ app.get('/blog', (req, res) => {
 
     });
 
-    res.render('blog', { posts });
+    res.render('blog', { title: 'Blog', posts });
   });
 });
 
