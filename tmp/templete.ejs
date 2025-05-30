@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="bg-gray-100 flex">
+        
+        <!-- 縦帯の画像 -->
+        <div class="bg-contain bg-center w-64 h-screen" style="background-image: url('/images/name.png');">
+        <!-- 必要に応じて画像タグでもOK -->
+        <!-- <img src="/images/sidebar.jpg" class="h-full w-full object-cover" alt="Sidebar"> -->
+        </div>
+
+        <!-- 右側 -->
+        <div class="bg-gray-200 flex-1 p-4">
+        <!-- <h1 class="text-4xl font-bold mb-4 text-center"><%= message %></h1> -->
+        <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
+        
+        <!--
+        <div class="text-center mb-8">
+            <img src="./images/k8s.png" alt="Profile Picture" class="rounded-full w-32 h-32 mx-auto mb-4">
+            <p>Hello! Welcome to my personal website where I share my journey as an engineer and musician.</p>
+        </div>
+        -->
+
+            <div class="mt-10 space-y-8 p-10">
+
+                ここに書きたいことを書いていく
+
+            </div>
+   
+         </div>
+         
+    </div>
+
+</body>
+</html>
