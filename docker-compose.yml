@@ -11,7 +11,7 @@ services:
       - ./public:/usr/src/app/public #Express 経由で /usr/src/app/public/css/styles.css にマッピングされま
       - ./app.js:/usr/src/app/app.js
       - ./package.json:/usr/src/app/package.json
-      - ./data/videos.json:/usr/src/app/data/videos.json
+      - ./data/:/usr/src/app/data/
       # - ./package-lock.json:/usr/src/app/package-lock.json
     networks:
       - my_network
