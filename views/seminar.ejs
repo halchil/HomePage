@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="bg-gray-100 flex">
+        
+        <!-- 縦帯の画像 -->
+        <div class="bg-contain bg-center w-64 h-screen" style="background-image: url('/images/name.png');">
+        <!-- 必要に応じて画像タグでもOK -->
+        <!-- <img src="/images/sidebar.jpg" class="h-full w-full object-cover" alt="Sidebar"> -->
+        </div>
+
+        <!-- 右側 -->
+        <div class="bg-gray-200 flex-1 p-4">
+        <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
+        
+            <div class="mt-10 space-y-8 p-10">
+
+              <div class="grid grid-cols-2 grid-rows-2 gap-8 p-6">
+                seminar
+              </div>
+              
+            </div>
+   
+         </div>
+         
+    </div>
+
+</body>
+</html>

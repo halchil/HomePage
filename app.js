@@ -28,11 +28,30 @@ app.get('/engineering', (req, res) => {
   });
 });
 
+
 // /about ページ
+/*
 app.get('/about', (req, res) => {
   res.render('about', {
     title: 'About',
     message: 'About Page'
+  });
+});
+*/
+
+// /Podcast ページ
+app.get('/podcast', (req, res) => {
+  res.render('podcast', {
+    title: 'Podcast',
+    message: 'Podcast Page'
+  });
+});
+
+// /seminar ページ
+app.get('/seminar', (req, res) => {
+  res.render('seminar', {
+    title: 'Seminar',
+    message: 'Seminar Page'
   });
 });
 
@@ -56,6 +75,7 @@ app.get('/music', (req, res) => {
 
 
 // advice ページ
+/*
 app.get('/advice', (req, res) => {
   const advicePath = path.join(__dirname, 'data', 'advice.json');
   fs.readFile(advicePath, 'utf-8', (err, data) => {
@@ -69,16 +89,8 @@ app.get('/advice', (req, res) => {
     });
   });
 });
-
-
-/*
-app.get('/advice', (req, res) => {
-  res.render('advice', {
-    title: 'Advice',
-    message: 'advice'
-  });
-});
 */
+
 
 // ブログ一覧ページ
 
@@ -117,27 +129,6 @@ app.get('/blog', (req, res) => {
     });
   });
 });
-
-
-/*
-app.get('/blog', (req, res) => {
-  const blogPath = path.join(__dirname, 'data', 'blog.json');
-  fs.readFile(blogPath, 'utf-8', (err, data) => {
-    if (err) {
-      return res.status(500).send('Error loading blog');
-    }
-
-    let posts = JSON.parse(data);
-    const tagFilter = req.query.tag;
-
-    if (tagFilter) {
-      posts = posts.filter(post => post.tags && post.tags.includes(tagFilter));
-    }
-
-    res.render('blog', { title: 'Blog', posts });
-  });
-});
-*/
 
 
 app.listen(port, () => {
