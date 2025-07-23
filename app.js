@@ -49,9 +49,37 @@ app.get('/podcast', (req, res) => {
 
 // /seminar ページ
 app.get('/seminar', (req, res) => {
-  res.render('seminar', {
-    title: 'Seminar',
-    message: 'Seminar Page'
+  const seminarsPath = path.join(__dirname, 'data', 'seminars.json');
+  fs.readFile(seminarsPath, 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading seminars');
+    }
+
+    const seminars = JSON.parse(data);
+
+    res.render('seminar', {
+      title: 'Seminar',
+      message: 'Seminar Page',
+      seminars: seminars
+    });
+  });
+});
+
+// /report ページ
+app.get('/report', (req, res) => {
+  const reportsPath = path.join(__dirname, 'data', 'reports.json');
+  fs.readFile(reportsPath, 'utf-8', (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading reports');
+    }
+
+    const reports = JSON.parse(data);
+
+    res.render('report', {
+      title: 'Report',
+      message: 'Report Page',
+      reports: reports
+    });
   });
 });
 

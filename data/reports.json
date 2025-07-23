@@ -1,0 +1,20 @@
+[
+  {
+    "id": "report1",
+    "title": "調査報告書1",
+    "description": "技術調査の結果報告\n改行したい内容aaaaaaaaaaaaaaaaaaaaaaaa",
+    "date": "2024-01-01",
+    "filename": "report1.pdf",
+    "category": "技術調査",
+    "tags": ["業界調査", "鉄鋼業界"]
+  },
+  {
+    "id": "report2", 
+    "title": "調査報告書2",
+    "description": "市場調査の結果報告",
+    "date": "2024-01-02",
+    "filename": "report2.pdf",
+    "category": "市場調査",
+    "tags": ["人口変動"]
+  }
+] 
