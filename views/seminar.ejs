@@ -23,11 +23,20 @@
         <%- include('partials/header') %> <!-- ここでヘッダーを表示 -->
         
             <div class="mt-10 space-y-8 p-10">
-
               <div class="grid grid-cols-2 grid-rows-2 gap-8 p-6">
-                Coming soon!
+                <% seminars.forEach(seminar => { %>
+                  <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
+                    <a href="https://www.youtube.com/watch?v=<%= seminar.id %>&t=<%= seminar.startTime %>" target="_blank" rel="noopener noreferrer" class="mb-4">
+                      <img src="https://img.youtube.com/vi/<%= seminar.id %>/hqdefault.jpg" alt="<%= seminar.title %> Thumbnail" class="rounded-lg shadow-sm" />
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=<%= seminar.id %>&t=<%= seminar.startTime %>" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-blue-600">
+                      <%= seminar.title %>
+                    </a>
+                    <p class="text-gray-600 text-sm mt-2"><%= seminar.description %></p>
+                    <p class="text-gray-500 text-xs mt-1"><%= seminar.date %></p>
+                  </div>
+                <% }) %>
               </div>
-              
             </div>
    
          </div>
